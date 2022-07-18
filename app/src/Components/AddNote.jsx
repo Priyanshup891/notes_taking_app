@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
+import { addNote } from '../services/api'
 
 export const AddNote = () => {
 
@@ -10,11 +11,17 @@ export const AddNote = () => {
 
     const handleChange = (e) => {
         setNotes({...notes, [e.target.name]: e.target.value})
+        console.log(notes);
+    }
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+       await addNote(notes);
     }
 
   return (
     <AddNoteContainer>
-        <form>
+        <form onSubmit={(event) => handleSubmit(event)}>
             <input type="text" placeholder='Title' name='title' onChange={(e) => handleChange(e)} />
             <textarea name="description" placeholder='Description' onChange={(e) => handleChange(e)}/>
             <button type='submit'>add note</button>
