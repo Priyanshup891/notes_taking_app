@@ -1,8 +1,11 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
 import { addNote } from '../services/api'
+import { useNavigate } from 'react-router-dom'
 
 export const AddNote = () => {
+
+    const navigate = useNavigate();
 
     const [notes, setNotes] = useState({
         title:"",
@@ -17,6 +20,7 @@ export const AddNote = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
        await addNote(notes);
+       navigate('/')
     }
 
   return (
@@ -45,7 +49,7 @@ form{
     background-color: #ffffff;
     width: 100%;
     max-width: 500px;
-    height: 500px;
+    height: 600px;
     padding: 1rem;
     gap: 0.5rem;
     border-radius: 1rem;
@@ -54,7 +58,7 @@ form{
         display: flex;
         flex: 10%;
         border: none;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         font-weight: bold;
         &:focus{
             border: none;

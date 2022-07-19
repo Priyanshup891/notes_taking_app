@@ -9,3 +9,11 @@ export const addNote = async (data) => {
         console.log(err.message);
     }
 }
+
+export const getNote = async () => {
+    try{
+        return await axios.get(`${API_URL}/all_note`);
+    } catch(err){
+        console.log(err.message);
+    }
+}

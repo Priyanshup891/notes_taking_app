@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@300;400;500;700;900&display=swap');
 *{
   margin: 0;
   padding: 0;
@@ -7,7 +6,7 @@
 }
 
 body{
-  font-family: 'Edu NSW ACT Foundation', cursive;
+  font-family: 'Yantramanav', sans-serif;
   background-image: url(./assets/bg.png);
   background-size: cover;
   background-position: center;
@@ -18,7 +17,7 @@ body{
 }
 
 button,input,textarea{
-  font-family: 'Edu NSW ACT Foundation', cursive;
+  font-family: 'Yantramanav', sans-serif;
 }
 
 .scale-up-center {
