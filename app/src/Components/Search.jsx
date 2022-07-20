@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { BiSearch } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
+
 export const Search = () => {
   return (
     <NavBar>
