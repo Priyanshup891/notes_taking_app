@@ -4,7 +4,7 @@ import { getNote } from "../services/api";
 import { TbEdit } from "react-icons/tb";
 import { AiFillDelete } from "react-icons/ai";
 import { Search } from "./Search";
-import ReactTooltip from "react-tooltip";
+import { Link } from "react-router-dom";
 
 
 export const Notes = () => {
@@ -26,11 +26,8 @@ export const Notes = () => {
         {notes.map((note) => (
           <div className="notes">
             <div className="icons">
-              <TbEdit data-tip="happyFace" size={20} color="#475747" />
-              <ReactTooltip id="happyFace" type="error">
-                <span>Show happy face</span>
-              </ReactTooltip>
-              <AiFillDelete size={20} color="#475747" />
+              <Link to={`/edit_note/${note._id}`} style={{display:"flex"}}><TbEdit size={20} color="#475747" cursor="pointer"  /></Link>
+              <AiFillDelete size={20} color="#475747" cursor="pointer" />
             </div>
             <h1>{note.title}</h1>
             <p>{note.description}</p>
@@ -46,7 +43,7 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   padding: 0 2rem;
   padding-bottom: 4rem;
@@ -56,7 +53,7 @@ const Container = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    background-color: #cde4cc;
+    background-color: rgb(205, 228, 204);
     border-radius: 1rem;
     -webkit-box-shadow: -1px 12px 32px -4px rgba(0, 0, 0, 0.24);
     -moz-box-shadow: -1px 12px 32px -4px rgba(0, 0, 0, 0.24);

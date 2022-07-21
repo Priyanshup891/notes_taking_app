@@ -22,3 +22,23 @@ module.exports.gettingNote = async (req, res, next) => {
         next(err.message)
     }
 }
+
+module.exports.gettingIdNote = async(req,res,next) => {
+    try{
+       const getIdNote = await Notes.find({_id: req.params.id})
+        return res.json({status:201,getIdNote})
+    } catch(err){
+        next(err.message)
+    }
+}
+
+module.exports.edittingNote = async (req,res,next) => {
+    try{
+        let note = req.body;
+        const editNote = new Notes(note);
+        await Notes.updateOne({_id: req.params.id}, editNote);
+        return res.json({status:201, editNote})
+    } catch(err){
+        next(err.message);
+    }
+}

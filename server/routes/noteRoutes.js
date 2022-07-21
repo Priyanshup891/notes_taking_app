@@ -1,7 +1,9 @@
 const router = require("express").Router();
-const {addingNote, gettingNote} = require("../controller/noteController")
+const {addingNote, gettingNote, gettingIdNote, edittingNote} = require("../controller/noteController")
 
-router.post('/add_note', addingNote)
-router.get('/all_note', gettingNote)
+router.post('/add_note', addingNote);
+router.get('/all_note', gettingNote);
+router.get('/:id', gettingIdNote);
+router.post('/:id', edittingNote)
 
 module.exports = router;

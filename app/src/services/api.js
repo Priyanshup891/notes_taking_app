@@ -17,3 +17,19 @@ export const getNote = async () => {
         console.log(err.message);
     }
 }
+
+export const getIdNote = async (id) => {
+    try{
+        return await axios.get(`${API_URL}/${id}`)
+    } catch(err){
+        console.log(err.message);
+    }
+}
+
+export const editNote = async (notes,id) => {
+    try{
+        return await axios.post(`${API_URL}/${id}`, notes)
+    } catch(err){
+        console.log(err.message);
+    }
+}
