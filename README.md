@@ -10,4 +10,4 @@ MERN Stack notes taking app.
 
 ## Screenshots
 
-![App Screenshot](https://i.im.ge/2022/07/21/FSCFSF.png)
+![App Screenshot](https://i.im.ge/2022/07/21/FSC35x.png)
