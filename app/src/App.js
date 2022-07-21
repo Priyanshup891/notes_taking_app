@@ -6,7 +6,6 @@ import { EditNote } from './Components/EditNote';
 
 export const App = () => {
   return (
-    <div className='bg-gradient'>
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Notes/>}/>
@@ -14,6 +13,5 @@ export const App = () => {
       <Route path='/edit_note/:id' element={<EditNote/>}/>
     </Routes>
     </BrowserRouter>
-    </div>
   )
 }

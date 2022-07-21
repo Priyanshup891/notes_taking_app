@@ -33,3 +33,11 @@ export const editNote = async (notes,id) => {
         console.log(err.message);
     }
 }
+
+export const deleteNote = async (id) => {
+    try{
+        return await axios.delete(`${API_URL}/${id}`);
+    } catch(err){
+        console.log(err.message);
+    }
+}

@@ -14,7 +14,6 @@ export const AddNote = () => {
 
     const handleChange = (e) => {
         setNotes({...notes, [e.target.name]: e.target.value})
-        console.log(notes);
     }
 
     const handleSubmit = async (event) => {
@@ -41,7 +40,7 @@ align-items: center;
 justify-content: center;
 height: 100vh;
 width: 100vw;
-background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+background-color:#b8d2c3;
 
 form{
     display: flex;
@@ -53,6 +52,9 @@ form{
     padding: 1rem;
     gap: 0.5rem;
     border-radius: 1rem;
+    -webkit-box-shadow: -1px 12px 32px -4px rgba(0, 0, 0, 0.24);
+    -moz-box-shadow: -1px 12px 32px -4px rgba(0, 0, 0, 0.24);
+    box-shadow: -1px 12px 32px -4px rgba(0, 0, 0, 0.24);
 
     input{
         display: flex;

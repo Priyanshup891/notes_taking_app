@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { getNote } from "../services/api";
+import { getNote, deleteNote } from "../services/api";
 import { TbEdit } from "react-icons/tb";
 import { AiFillDelete } from "react-icons/ai";
 import { Search } from "./Search";
@@ -9,25 +9,32 @@ import { Link } from "react-router-dom";
 
 export const Notes = () => {
   const [notes, setNotes] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    const getAllNotes = async () => {
-      const response = await getNote();
-      setNotes(response.data.getNote);
-    };
-
     getAllNotes();
   }, []);
 
+  const getAllNotes = async () => {
+    const response = await getNote();
+    setNotes(response.data.getNote);
+  };
+
+
+  const handleDelete = async (id) => {
+    await deleteNote(id);
+    getAllNotes();
+  }
+
   return (
-    <>
-      <Search />
+    <div className="bg-gradient" style={{width:"100vw", height:"100vh"}}>
+      <Search setSearch ={setSearch} />
       <Container>
-        {notes.map((note) => (
+        {notes.filter(sch => sch.title.includes(search)).map((note) => (
           <div className="notes">
             <div className="icons">
               <Link to={`/edit_note/${note._id}`} style={{display:"flex"}}><TbEdit size={20} color="#475747" cursor="pointer"  /></Link>
-              <AiFillDelete size={20} color="#475747" cursor="pointer" />
+              <AiFillDelete size={20} color="#475747" cursor="pointer" onClick={() => handleDelete(note._id)} />
             </div>
             <h1>{note.title}</h1>
             <p>{note.description}</p>
@@ -35,7 +42,7 @@ export const Notes = () => {
         ))}
       </Container>
 
-    </>
+    </div>
   );
 };
 

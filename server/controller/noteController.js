@@ -42,3 +42,12 @@ module.exports.edittingNote = async (req,res,next) => {
         next(err.message);
     }
 }
+
+module.exports.deletingNote = async (req,res,next) => {
+    try{
+        const deleteNote = await Notes.deleteOne({_id: req.params.id});
+        return res.json({status:201, deleteNote})
+    } catch(err){
+        next(err.message);
+    }
+}

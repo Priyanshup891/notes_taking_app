@@ -4,12 +4,18 @@ import { BiSearch } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 
-export const Search = () => {
+export const Search = ({setSearch}) => {
+
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+
+  }
+
   return (
     <NavBar>
         <div className="searchBar">
       <BiSearch size={30} color="#596e58" />
-      <input type="text" placeholder="Serach notes ..." />
+      <input type="text" placeholder="Serach notes ..." onChange={(e) => handleChange(e)} />
         </div>
         <Link to='/add_note'>Add Note</Link>
     </NavBar>
